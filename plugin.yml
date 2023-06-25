@@ -1,0 +1,7 @@
+---
+name: ILoveJungle
+version: 0.0.1
+main: NhanAZ\ILoveJungle\Main
+api: 5.0.0
+src-namespace-prefix: NhanAZ\ILoveJungle
+...
