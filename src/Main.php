@@ -21,6 +21,9 @@ class Main extends PluginBase implements Listener {
 	public function onChunk(ChunkLoadEvent $event): void {
 		$chunk = $event->getChunk();
 		foreach ($chunk->getSubChunks() as $y => $subChunk) {
+			if ($chunk->getSubChunk($y)->getBiomeArray()->getPalette() === [BiomeIds::JUNGLE]) {
+				continue;
+			}
 			$chunk->setSubChunk($y, new SubChunk(
 				$subChunk->getEmptyBlockId(),
 				$subChunk->getBlockLayers(),
