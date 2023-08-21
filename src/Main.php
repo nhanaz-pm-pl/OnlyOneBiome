@@ -2,9 +2,8 @@
 
 declare(strict_types=1);
 
-namespace NhanAZ\ILoveJungle;
+namespace NhanAZ\OnlyOneBiome;
 
-use pocketmine\data\bedrock\BiomeIds;
 use pocketmine\event\Listener;
 use pocketmine\event\world\ChunkLoadEvent;
 use pocketmine\plugin\PluginBase;
@@ -20,14 +19,15 @@ class Main extends PluginBase implements Listener {
 	/** Thanks @Muqsit [https://discord.com/channels/373199722573201408/373214753147060235/1122366583050866738] */
 	public function onChunk(ChunkLoadEvent $event): void {
 		$chunk = $event->getChunk();
+		$biomeID = $this->getConfig()->get("biomeID");
 		foreach ($chunk->getSubChunks() as $y => $subChunk) {
-			if ($chunk->getSubChunk($y)->getBiomeArray()->getPalette() === [BiomeIds::JUNGLE]) {
+			if ($chunk->getSubChunk($y)->getBiomeArray()->getPalette() === [$biomeID]) {
 				continue;
 			}
 			$chunk->setSubChunk($y, new SubChunk(
 				$subChunk->getEmptyBlockId(),
 				$subChunk->getBlockLayers(),
-				new PalettedBlockArray(BiomeIds::JUNGLE),
+				new PalettedBlockArraY($biomeID),
 				$subChunk->getBlockSkyLightArray(),
 				$subChunk->getBlockLightArray()
 			));

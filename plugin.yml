@@ -1,7 +1,10 @@
 ---
-name: ILoveJungle
+name: OnlyOneBiome
 version: 0.0.1
-main: NhanAZ\ILoveJungle\Main
+main: NhanAZ\OnlyOneBiome\Main
 api: 5.0.0
-src-namespace-prefix: NhanAZ\ILoveJungle
+src-namespace-prefix: NhanAZ\OnlyOneBiome
+authors: [Muqsit, NhanAZ]
+website: https://github.com/NhanAZ
+description: Set the biome of the entire world in your server to the biome specified in the plugin config
 ...
